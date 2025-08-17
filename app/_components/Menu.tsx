@@ -80,7 +80,7 @@ export default function Menu() {
                             <Image src={ menuItem.image } alt={menuItem.name} width={ 290 } height={ 150} className='object-contain rounded-xl' loading='lazy'/>
                           </div>
                           <div className='w-full flex justify-center items-center  h-[17%] mb-4 py-8 px-3 border border-black drop-shadow-2xl rounded-xl'>
-                            <h2 className=' text-base font-semibold text-[#f8dcd3]'> <span className='bg-clip-text '>{ menuItem.name } : </span><span className='rounded-md text-sm text-white p-1 font-semibold'>₦{ menuItem.price}</span></h2>
+                            <h2 className=' text-base font-medium text-[#f8dcd3]'> <span className='bg-clip-text '>{ menuItem.name } : </span><span className='rounded-md text-sm text-white p-1 font-semibold'>₦{ menuItem.price}</span></h2>
                           </div>
                         </div>
                       ))}

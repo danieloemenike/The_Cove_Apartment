@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
+import Footer from "./_components/Footer";
 
 const greatVibes = localFont({
   src: "../fonts/greatvibes/GreatVibes-Regular.ttf",
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${greatVibes.variable} font-sans antialiased`}>
         <Header />
         {children}
+        {/* <Footer /> */}
       </body>
     </html>
   );

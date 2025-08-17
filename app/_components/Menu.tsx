@@ -1,26 +1,26 @@
 "use client"
 import React, { useState } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import { TheCoveMenu as skyMenu } from '@/Menu';
 import { kitchenMenu } from '@/Kitchen-Menu';
 
 type MenuItem = {
-  id: number;
+  id: string;
   name: string;
   image: string;
   price: string;
 };
 
 type MenuCategory = {
-  id: number;
+  id: string;
   category: string;
   items: MenuItem[];
 };
 
 const combinedMenu: MenuCategory[] = [
-    ...skyMenu.map(c => ({ ...c, items: c.drinks })), 
-    ...kitchenMenu.map(c => ({ ...c, items: c.food, id: c.id + skyMenu.length }))
+  ...skyMenu.map(c => ({ ...c, id: uuidv4(), items: c.drinks.map(d => ({ ...d, id: uuidv4() })) })),
+  ...kitchenMenu.map(c => ({ ...c, id: uuidv4(), items: c.food.map(f => ({ ...f, id: uuidv4() })) }))
 ];
 
 export default function Menu() {
@@ -75,7 +75,7 @@ export default function Menu() {
                     {items.length > 0 && <div className='  flex decoration-from-font justify-center'> <h3 className='font-bold text-[3rem] text-center mt-32 mb-12 font-gv capitalize tracking-[.20rem] bg-clip-text text-transparent bg-gradient-to-r  to-white  from-[#ff3c00] '>{item.category}</h3> </div>}
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:mx-3 md:gap-6 mx-2 lg:mx-20 backdrop-filter backdrop-blur-lg'>
                       {items.map((menuItem: MenuItem) => (
-                        <div key={menuItem.id} id={menuItem.id.toString()} className='rounded-md h-80 w-50 p-2 shadow   backdrop-filter backdrop-blur-lg '>
+                        <div key={menuItem.id} id={menuItem.id} className='rounded-md h-80 w-50 p-2 shadow   backdrop-filter backdrop-blur-lg '>
                           <div className='h-60 w-full bg-white object-contain flex items-center justify-center overflow-hidden rounded-t-lg mb-2'>
                             <Image src={ menuItem.image } alt={menuItem.name} width={ 290 } height={ 150} className='object-contain rounded-xl' loading='lazy'/>
                           </div>

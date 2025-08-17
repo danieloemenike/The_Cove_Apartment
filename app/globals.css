@@ -26,3 +26,10 @@ body {
 .border-theme-color {
   border-color: var(--theme-color);
 }
+
+.sticky-filter {
+  position: sticky;
+  top: 4rem;
+  z-index: 50;
+  background-color: var(--background);
+}

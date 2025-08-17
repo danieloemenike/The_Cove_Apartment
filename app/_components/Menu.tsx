@@ -45,7 +45,7 @@ export default function Menu() {
             <h2 className='font-bold text-[2rem] lg:text-[4rem] font-gv bg-clip-text text-transparent bg-gradient-to-r  from-[#ff3c00] via-white  to-white'> Menu </h2>
           </div>
           <div className='w-full h-full'>
-            <div className="flex flex-col md:flex-row justify-center m-4 p-4 gap-2 md:gap-4">
+            <div className="sticky-filter flex flex-col md:flex-row justify-center m-4 p-4 gap-2 md:gap-4 w-full bg-black mx-auto">
               <select title="categories" onChange={handleCategoryChange} className='mt-4 p-2  bg-black rounded-md '>
                 <option value='' className=''>All Foods & Drinks</option>
                 {menuData.map((item: MenuCategory) => (
@@ -56,7 +56,7 @@ export default function Menu() {
               </select>
               <input
                 type='text'
-                placeholder={`Search for items here...`}
+                placeholder={`🔍 Search here for food or drink`}
                 value={searchTerm}
                 onChange={handleSearchChange}
                 className='mt-4 p-2 rounded-md bg-black w-[100%] lg:w-[40%]'

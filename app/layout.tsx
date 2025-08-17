@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./_components/Header";
 
 const greatVibes = localFont({
   src: "../fonts/greatvibes/GreatVibes-Regular.ttf",
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${greatVibes.variable} font-sans antialiased`}>
+        <Header />
         {children}
       </body>
     </html>

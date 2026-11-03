@@ -1,17 +1,18 @@
 import Menu from "./_components/Menu";
 import Hero from "./_components/Hero";
-import Link from "next/link";
+import Footer from "./_components/Footer";
+import { getPublicMenu } from "@/lib/menus/public";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+    const categories = await getPublicMenu();
+
     return (
-        <section className='bg-gradient-to-r to-black via-black from-sky-900/20 '>
-            <Hero path="/theCoveBanner.jpg" title="...As Unique as your imagination..." lounge="Apartment & Lounge"/>
-            <div className="flex justify-center mt-4 pt-8 lg:pt-0">
-                <Link href="#starters" className="px-4 py-2 mx-2 rounded-md bg-orange-500 text-white" style={{ touchAction: 'manipulation' }}>
-                    Go to the Kitchen Menu
-                </Link>
-            </div>
-            <Menu />
-        </section>
+        <main className="min-h-screen bg-ink text-cream">
+            <Hero path="/theCoveBanner.jpg" title="As unique as your imagination." lounge="Apartment & Lounge"/>
+            <Menu categories={categories} />
+            <Footer />
+        </main>
     );
 }

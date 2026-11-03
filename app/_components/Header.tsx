@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 const Header = () => {
@@ -7,7 +6,7 @@ const Header = () => {
       <div className="container mx-auto">
         <Link href="/">
           
-            <Image
+            <img
               src="/TheCove.jpg"
               alt="The Cove Logo"
               width={50}

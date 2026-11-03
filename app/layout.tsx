@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Bodoni_Moda, Jost } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
+import { AppProviders } from "@/components/providers/AppProviders";
+import { themeBootScript } from "./_components/ThemeToggle";
 
-const greatVibes = localFont({
-  src: "../fonts/greatvibes/GreatVibes-Regular.ttf",
-  variable: "--font-great-vibes",
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+  display: "swap",
+});
+
+const jost = Jost({
+  subsets: ["latin"],
+  variable: "--font-jost",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,11 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${greatVibes.variable} font-sans antialiased`}>
-        <Header />
-        {children}
-        {/* <Footer /> */}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
+      <body className={`${bodoni.variable} ${jost.variable} font-sans antialiased`}>
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   );

@@ -1,16 +1,100 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+/* Public menu: dark is the default; data-menu-theme="light" is set by the theme toggle */
+:root {
+  --menu-ink: #000000;
+  --menu-ink-raised: #141414;
+  --menu-text: #ffffff;
+  --menu-muted: #a3a3a3;
+  --menu-brass: #c9a36a;
+  --menu-plate: #ffffff;
+}
+
+:root[data-menu-theme="light"] {
+  --menu-ink: #ffffff;
+  --menu-ink-raised: #f4f4f4;
+  --menu-text: #111111;
+  --menu-muted: #666666;
+  --menu-brass: #8a672c;
+  --menu-plate: #ffffff;
+}
 
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
   --theme-color: #0d5d5d;
+
+  /* Dashboard (shadcn) tokens — dark palette */
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: sans-serif;
-  --font-great-vibes: var(--font-great-vibes);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bodoni), "Bodoni 72", Didot, serif;
+
+  /* Public menu palette — values live in :root so light/dark can swap them */
+  --color-ink: var(--menu-ink);               /* page background */
+  --color-ink-raised: var(--menu-ink-raised); /* search, dialogs, toggles */
+  --color-cream: var(--menu-text);            /* primary text */
+  --color-mist: var(--menu-muted);            /* secondary text */
+  --color-brass: var(--menu-brass);           /* prices, active states, leaders */
+  --color-plate: var(--menu-plate);           /* thumbnail backdrop */
+  --color-cove: #ff4d00;                      /* logo orange */
 }
 
 body {
@@ -19,17 +103,21 @@ body {
   font-family: var(--font-sans);
 }
 
-.font-gv {
-  font-family: var(--font-great-vibes);
-}
 
 .border-theme-color {
   border-color: var(--theme-color);
 }
 
-.sticky-filter {
-  position: sticky;
-  top: 4rem;
-  z-index: 50;
-  background-color: var(--background);
+/* One orchestrated entrance for the hero; skipped when motion is reduced */
+@keyframes cove-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cove-settle {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cove-rise { animation: cove-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .cove-settle { animation: cove-settle 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 }

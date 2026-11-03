@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Cove — Digital Menu
 
-## Getting Started
+A menu that feels like the lounge it belongs to. Guests at **The Cove Apartment & Lounge** scan, browse and order from their phones; staff update prices and photos in seconds.
 
-First, run the development server:
+**[See it live →](https://the-cove.vercel.app)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![The Cove menu on desktop](docs/screenshots/desktop-hero.jpg)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+  <img src="docs/screenshots/mobile-menu-dark.jpg" width="250" alt="Drinks menu in dark mode" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-hero-nudge.jpg" width="250" alt="Hero with the light-mode suggestion" />
+  &nbsp;
+  <img src="docs/screenshots/mobile-hero-light.jpg" width="250" alt="Hero in light mode" />
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What makes it special
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Designed, not templated.** High-contrast Bodoni type, brass accents and a printed-menu layout with dotted price leaders, built around the lounge's own gold-lit interior.
+- **Made for a phone in a dim room.** A sticky Drinks / Kitchen switch, category tabs that follow you as you scroll, instant search, and tap-to-enlarge photos.
+- **Light and dark mode.** Dark by default, with a gentle nudge to switch when the room is bright. Each guest's choice is remembered.
+- **Always up to date.** Staff sign in to a private dashboard to add items, change prices and upload photos, and every edit shows exactly what's changing before it's saved. Updates go live instantly.
+- **Never blank.** If the database is ever unreachable, the menu falls back to a built-in copy.
 
-## Learn More
+## Built with
 
-To learn more about Next.js, take a look at the following resources:
+Next.js 15 · React 19 · Tailwind CSS 4 · Neon Postgres & Neon Auth · Drizzle ORM · Cloudflare R2
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Want a menu like this for your business? **[Chat on WhatsApp](https://wa.me/2349090366306)**
